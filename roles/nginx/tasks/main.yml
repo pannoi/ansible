@@ -17,3 +17,9 @@
     owner: root
     mode: 0644
     group: "{{ root_group }}"
+
+- name: Ensure that service is running.
+  service:
+    name: "{{ nginx_service_name }}"
+    state: "{{ nginx_service_state }}"
+    enabled: "{{ nginx_service_enabled }}"

@@ -1,0 +1,6 @@
+---
+apache_packages: 
+  - httpd
+  - mod_ssl
+apache_conf_path: /etc/httpd/httpd.conf
+apache_service_name: httpd

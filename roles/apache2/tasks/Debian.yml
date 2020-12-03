@@ -1,0 +1,6 @@
+---
+- name: Ensure that apache2 package is installed
+  apt:
+    name: "{{ apache_packages }}"
+    state: present
+    update_cache: yes

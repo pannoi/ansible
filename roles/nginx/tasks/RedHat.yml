@@ -16,3 +16,7 @@
   yum:
     name: "{{ nginx_package_name }}"
     state: present
+
+- name: Just force systemd to reread config
+  systemd:
+    daemon_reload: yes

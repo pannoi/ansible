@@ -1,0 +1,9 @@
+---
+- name: Ensure that apache2 package is installed
+  yum:
+    name: "{{ apache_packages }}"
+    state: present
+
+- name: Just force systemd to reread config
+  systemd:
+    daemon_reload: yes

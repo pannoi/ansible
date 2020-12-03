@@ -4,8 +4,3 @@
     name: "{{ nginx_package_name }}"
     state: present
 
-- name: Ensure that service is running.
-  service:
-    name: "{{ nginx_service_name }}"
-    state: "{{ nginx_service_state }}"
-    enabled: "{{ nginx_service_enabled }}"
