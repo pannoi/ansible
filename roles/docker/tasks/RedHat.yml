@@ -1,0 +1,15 @@
+- name: Ensure that dependency are pre-isntalled.
+  yum:
+    name: "{{ dependency_packages }}"
+    state: present
+
+- name: Ensure that config-manager repo is added.
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    mode: 0644
+
+- name: Ensure that docker engine is installed.
+  yum:
+    name: "{{ docker_packages }}"
+    state: present

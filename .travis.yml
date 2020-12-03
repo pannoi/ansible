@@ -19,3 +19,5 @@ install:
 script:
   - cd roles/nginx
   - python3 -m molecule test
+  - cd ../docker
+  - python3 -m molecule test

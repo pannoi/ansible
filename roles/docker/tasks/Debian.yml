@@ -1,0 +1,22 @@
+---
+- name: Ensure that dependency are pre-installed.
+  apt:
+    name: "{{ dependency_packages }}"
+    state: present
+    update_cache: yes
+
+- name: Ensure that GPG key is added.
+  apt_key:
+    url: "{{ docker_gpg }}"
+    state: present
+
+- name: Esnure that apt repository exists.
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+    state: present
+
+- name: Ensure that docker engine is installed.
+  apt:
+    name: "{{ docker_packages }}"
+    state: present
+    update_cache: yes
