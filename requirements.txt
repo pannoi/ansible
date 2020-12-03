@@ -1,4 +1,5 @@
 ansible==2.9.6
 molecule==3.2.0
-docker==0.2.4
+# docker==0.2.4
 pytest==5.4.1
+testinfra==1.19.0

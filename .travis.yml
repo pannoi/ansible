@@ -1,0 +1,21 @@
+---
+language: python
+python: "3.6"
+
+services:
+  - docker
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - python3-pip
+
+install:
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+script:
+  - cd roles/nginx
+  - python3 -m molecule test

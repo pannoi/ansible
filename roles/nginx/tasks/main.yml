@@ -1,0 +1,19 @@
+---
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Define nginx user.
+  set_fact:
+    nginx_user: "{{ __nginx_user }}"
+  when: nginx_user is not defined
+
+- name: Include OS-specific tasks.
+  include_tasks: "{{ ansible_os_family }}.yml"
+
+- name: Ensure that nginx.conf is present
+  template:
+    src: "{{ nginx_config_template }}"
+    dest: "{{ nginx_conf_path }}"
+    owner: root
+    mode: 0644
+    group: "{{ root_group }}"

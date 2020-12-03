@@ -1,0 +1,2 @@
+root_group: sudo
+__nginx_user: "nginx"
